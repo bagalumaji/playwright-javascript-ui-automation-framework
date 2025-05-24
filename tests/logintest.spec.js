@@ -1,8 +1,10 @@
-import {test,expect} from '@playwright/test';
-import {LoginPage} from '../pages/loginpage';
+
+
 import {HomePage} from '../pages/homepage';
 import path from 'path';
 import dotenv from 'dotenv';
+import {test} from "../fixtures/customfixtures";
+
 dotenv.config({path:path.resolve(__dirname,'..','.env')});
 const baseUrl=process.env.baseURL
 const username=process.env.login_username
@@ -12,13 +14,12 @@ test.beforeEach(async({page})=>{
     await page.goto(baseUrl);
 });
 
-test("login test",async({page})=>{
+test("login test",async({page,loginPage})=>{
     console.log(baseUrl);
     console.log(username);
     console.log(password);
     console.log("----------------------")
 
-    const loginPage= new LoginPage(page);
     await loginPage.verifyLoginPage();
     await loginPage.performLogin(username,password);
 
