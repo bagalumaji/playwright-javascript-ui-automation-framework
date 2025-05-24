@@ -22,10 +22,8 @@ export default defineConfig({
   use: {
     trace: 'on-first-retry',
     headless: false,
-    baseURL: 'https://www.saucedemo.com/',
     actionTimeout: 10000,
     navigationTimeout: 30000,
-    
   },
 
   projects: [
