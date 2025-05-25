@@ -1,4 +1,5 @@
 import { expect } from '@playwright/test';
+import {PageAction} from "../pageactions/pageaction";
 
 export class HomePage{
     constructor(page){
@@ -6,7 +7,11 @@ export class HomePage{
     }
 
     async verifyHomePage(){
-        await expect(this.page.getByText("Products")).toBeVisible();
+        await PageAction.waitForElementToBeVisible(this.#getProductTextLocator,15000);
+    }
+
+    get #getProductTextLocator(){
+        return this.page.getByText("Products");
     }
 
     async #clickLogoutButton(){
