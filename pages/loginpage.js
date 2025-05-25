@@ -15,12 +15,13 @@ export class LoginPage{
     }
 
     async verifyLoginPage(){
-        await PageAction.waitForElementToBeVisible(this.ttLocator, 15000);
+        await PageAction.waitForElementToBeVisible(this.#userNameLocator, 15000);
     }
 
-    get ttLocator(){
+    get #userNameLocator(){
         return this.page.getByText("Username");
     }
+
     async performLogin(username,password){
         await this.enterUsername(username);
         await this.enterPassword(password);
