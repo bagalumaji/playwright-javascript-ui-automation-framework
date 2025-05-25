@@ -16,7 +16,6 @@ export class LoginPage{
     }
 
     async verifyLoginPage(){
-        //await expect(this.ttLocator).toBeVisible();
         await PageAction.waitForElementToBeVisible(this.ttLocator, 15000);
     }
 
