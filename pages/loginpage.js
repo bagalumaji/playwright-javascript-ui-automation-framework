@@ -1,4 +1,5 @@
 import { expect } from '@playwright/test';
+import {PageAction} from "../pageactions/pageaction";
 export class LoginPage{
     constructor(page){
         this.page =page;
@@ -15,9 +16,13 @@ export class LoginPage{
     }
 
     async verifyLoginPage(){
-        await expect(this.page.getByText("Username")).toBeVisible();
+        //await expect(this.ttLocator).toBeVisible();
+        await PageAction.waitForElementToBeVisible(this.ttLocator, 15000);
     }
 
+    get ttLocator(){
+        return this.page.getByText("Username");
+    }
     async performLogin(username,password){
         await this.enterUsername(username);
         await this.enterPassword(password);
