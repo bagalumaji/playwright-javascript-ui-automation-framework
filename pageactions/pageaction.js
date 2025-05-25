@@ -8,4 +8,8 @@ export class PageAction {
         } catch (error) {
         }
     }
+
+    async waitForElementToBeNotVisible(locator,timeout) {
+        await expect(locator).not.toBeVisible({ timeout: timeout })
+    }
 }
