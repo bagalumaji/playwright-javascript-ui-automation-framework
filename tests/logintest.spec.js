@@ -15,11 +15,6 @@ test.beforeEach(async({page})=>{
 });
 
 test("login test",async({page,loginPage})=>{
-    console.log(baseUrl);
-    console.log(username);
-    console.log(password);
-    console.log("----------------------")
-
     await loginPage.verifyLoginPage();
     await loginPage.performLogin(username,password);
 
