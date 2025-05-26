@@ -5,21 +5,27 @@ export class LoginPage{
     }
  
     async enterUsername(username){
-        await this.page.getByPlaceholder("Username").fill(username);
+        await PageAction.fill(this.#userNameTextBoxLocator, username,15000);
     }
     async enterPassword(password){
-        await this.page.getByPlaceholder("Password").fill(password);
+        await PageAction.fill(this.#passwordTextBoxLocator, password,15000);
     }
     async clickLoginButton(){
-        await this.page.getByRole("button",{name:'Login'}).click();
+        await PageAction.click(this.#loginButtonLocator,15000);
     }
 
     async verifyLoginPage(){
-        await PageAction.waitForElementToBeVisible(this.#userNameLocator, 15000);
+        await PageAction.waitForElementToBeVisible(this.#userNameTextBoxLocator, 15000);
     }
 
-    get #userNameLocator(){
+    get #userNameTextBoxLocator(){
         return this.page.getByText("Username");
+    }
+    get #passwordTextBoxLocator(){
+        return this.page.getByPlaceholder("Password");
+    }
+    get #loginButtonLocator(){
+        return this.page.getByRole("button",{name:'Login'});
     }
 
     async performLogin(username,password){
