@@ -9,17 +9,23 @@ export class HomePage{
         await PageAction.waitForElementToBeVisible(this.#getProductTextLocator,15000);
     }
 
-    get #getProductTextLocator(){
-        return this.page.getByText("Products");
-    }
-
     async #clickLogoutButton(){
-        await this.page.getByRole("link",{name:'Logout'}).click();
+        await PageAction.click(this.#logoutButtonLocator,15000);
     }
 
     async #clickMenuButton(){
-        await this.page.getByRole("button",{name:'Open Menu'}).click();
+        await PageAction.click(this.#openMenuButtonLocator,15000);
     }
+    get #openMenuButtonLocator(){
+        return this.page.getByRole("button",{name:'Open Menu'});
+    }
+    get #getProductTextLocator(){
+        return this.page.getByText("Products");
+    }
+    get #logoutButtonLocator(){
+        return this.page.getByRole("link",{name:'Logout'});
+    }
+
     async performLogout(){
         await this.#clickMenuButton();
         await this.#clickLogoutButton();
