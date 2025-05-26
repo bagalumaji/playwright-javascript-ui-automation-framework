@@ -12,7 +12,10 @@ export class PageAction {
     static async waitForElementToBeNotVisible(locator,timeout) {
         await expect(locator).not.toBeVisible({ timeout: timeout })
     }
-    static async click(locator){
-
+    static async click(locator,timeout){
+        await locator.click(timeout)
+    }
+    static async fill(locator,text,timeout) {
+        await locator.fill(text,timeout)
     }
 }
