@@ -1,20 +1,20 @@
 import {PageAction} from "../pageactions/pageaction";
-
+import config from "../testdata/config.json";
 export class HomePage{
     constructor(page){
         this.page = page;
     }
 
     async verifyHomePage(){
-        await PageAction.waitForElementToBeVisible(this.#getProductTextLocator,15000);
+        await PageAction.waitForElementToBeVisible(this.#getProductTextLocator);
     }
 
     async #clickLogoutButton(){
-        await PageAction.click(this.#logoutButtonLocator,15000);
+        await PageAction.click(this.#logoutButtonLocator,config.wait.minimumTimeout);
     }
 
     async #clickMenuButton(){
-        await PageAction.click(this.#openMenuButtonLocator,15000);
+        await PageAction.click(this.#openMenuButtonLocator,config.wait.minimumTimeout);
     }
     get #openMenuButtonLocator(){
         return this.page.getByRole("button",{name:'Open Menu'});
