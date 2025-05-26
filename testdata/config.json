@@ -1,0 +1,7 @@
+{
+  "wait": {
+    "minimumTimeout": 5000,
+    "defaultTimeout": 15000,
+    "maximum": 45000
+  }
+}
