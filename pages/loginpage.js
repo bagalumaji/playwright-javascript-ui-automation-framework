@@ -19,10 +19,10 @@ export class LoginPage{
     }
 
     get #userNameTextBoxLocator(){
-        return this.page.getByText("Username");
+        return this.page.getByRole("textbox",{name:"Username"});
     }
     get #passwordTextBoxLocator(){
-        return this.page.getByPlaceholder("Password");
+        return this.page.getByRole("textbox",{name:"Password"});
     }
     get #loginButtonLocator(){
         return this.page.getByRole("button",{name:'Login'});
