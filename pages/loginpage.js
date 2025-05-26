@@ -1,21 +1,22 @@
 import {PageAction} from "../pageactions/pageaction";
+import config from "../testdata/config.json";
 export class LoginPage{
     constructor(page){
         this.page =page;
     }
  
     async enterUsername(username){
-        await PageAction.fill(this.#userNameTextBoxLocator, username,15000);
+        await PageAction.fill(this.#userNameTextBoxLocator, username,config.wait.minimumTimeout);
     }
     async enterPassword(password){
-        await PageAction.fill(this.#passwordTextBoxLocator, password,15000);
+        await PageAction.fill(this.#passwordTextBoxLocator, password,config.wait.minimumTimeout);
     }
     async clickLoginButton(){
-        await PageAction.click(this.#loginButtonLocator,15000);
+        await PageAction.click(this.#loginButtonLocator,config.wait.minimumTimeout);
     }
 
     async verifyLoginPage(){
-        await PageAction.waitForElementToBeVisible(this.#userNameTextBoxLocator, 15000);
+        await PageAction.waitForElementToBeVisible(this.#userNameTextBoxLocator);
     }
 
     get #userNameTextBoxLocator(){
