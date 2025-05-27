@@ -1,5 +1,5 @@
 import {expect} from "@playwright/test";
-import envtestdata from '../testdata/config.json';
+import config from '../testdata/config.json';
 
 export class PageAction {
     static async waitForElementToBeVisible(locator, timeOut) {
@@ -23,6 +23,6 @@ export class PageAction {
     }
 
     static #getTimeout(timeOut) {
-        return {timeout: timeOut ?? envtestdata.wait.defaultTimeout};
+        return {timeout: timeOut ?? config.wait.defaultTimeout};
     }
 }
