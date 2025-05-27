@@ -1,6 +1,6 @@
 // @ts-check
 import { defineConfig, devices } from '@playwright/test';
-
+import config from 'testdata/config.json';
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -22,8 +22,8 @@ export default defineConfig({
   use: {
     trace: 'on-first-retry',
     headless: false,
-    actionTimeout: 10000,
-    navigationTimeout: 30000,
+    actionTimeout: config.wait.defaultTimeout,
+    navigationTimeout: config.wait.navigationTimeout,
   },
 
   projects: [
